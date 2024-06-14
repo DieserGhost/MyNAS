@@ -1,0 +1,20 @@
+{
+  "nas_users": [
+    {
+      "username": "user1",
+      "password": "password1",
+      "directory": "NAS_Storage",
+      "perm": "elradfmwMT"
+    },
+    {
+      "username": "user2",
+      "password": "password2",
+      "directory": "NAS_Storage",
+      "perm": "elradfmwMT"
+    }
+  ],
+  "nas_server": {
+    "host": "0.0.0.0",
+    "port": 21
+  }
+}
