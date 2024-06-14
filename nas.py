@@ -4,7 +4,7 @@ from pyftpdlib.handlers import FTPHandler
 from pyftpdlib.servers import FTPServer
 
 # Load configuration from nas_conf.json
-with open("nas_conf.json", "r") as config_file:
+with open("config/nas_conf.json", "r") as config_file:
     config = json.load(config_file)
 
 ftp_users = config['nas_users']
