@@ -1,16 +1,17 @@
-# This is a sample Python script.
+from pyftpdlib.authorizers import DummyAuthorizer
+from pyftpdlib.handlers import FTPHandler
+from pyftpdlib.servers import FTPServer
 
-# Press Umschalt+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+username = "user"
+password = "12345"
+directory = "NAS"
 
+authorizer = DummyAuthorizer()
+authorizer.add_user(username, password, directory, perm='elradfmwMT')
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Strg+F8 to toggle the breakpoint.
+handler = FTPHandler
+handler.authorizer = authorizer
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('GHOST143')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+server = FTPServer(("0.0.0.0", 21), handler)
+print(f"Starting FTP server for directory: {directory}")
+server.serve_forever()
